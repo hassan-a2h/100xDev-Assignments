@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { SchemaTypes } = mongoose;
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://user_1122:1122@0123.hgnbueb.mongodb.net/course_store?retryWrites=true&w=majority');
+mongoose.connect('connectString');
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
