@@ -10,22 +10,23 @@ function App() {
     }
 
     const para = generateWords(wordCount);
-    
-    document.querySelector('.generated-para').textContent = para;
+    const paraElement = document.querySelector('.generated-para');
+    paraElement.textContent = para;
+    if (paraElement.classList.contains('error')) {
+      paraElement.classList.remove('error');
+    }
   }
 
   return (
-    <div>
-      <form onSubmit={generatePara} >
-        <label htmlFor="number-input">Word Count</label>
-        <input id='number-input' type="number" min={0} max={2000} />
-
-        <button type="submit">Generate</button>
-      </form>
-
-      <div className="generated-para">
-
+    <div className="container">
+      <div className="input-form">
+        <form onSubmit={generatePara} >
+          <input id='number-input' type="number" min={0} max={2000} placeholder="Word Count" />
+          <button type="submit">Generate</button>
+        </form>
       </div>
+
+      <div className="generated-para"></div>
     </div>
   );
 }
